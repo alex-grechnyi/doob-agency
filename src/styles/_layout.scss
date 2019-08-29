@@ -1,0 +1,144 @@
+.header {
+  background-image: linear-gradient(rgba($color-white, 0.85), rgba($color-white, 0.85)), url(../img/main-img-1.png);
+  background-size: cover;
+  @include respond(desktop) {
+    background: none;
+  }
+
+  &__top {
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-right {
+      order: 2;
+      display: flex;
+
+      &-btn {
+        display: none;
+        @include respond (desktop) {
+          display: block;
+          align-self: flex-start;
+          margin-left: 4rem;
+        }
+      }
+    }
+  }
+
+  &__inner {
+    padding: 6rem 0;
+    @include respond(tab) {
+      padding: 7rem 12rem;
+    }
+    @include respond(desktop) {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10rem 0;
+    }
+
+    &-title {
+      text-align: center;
+      @include respond(tab) {
+        padding: 8rem 0;
+      }
+      @include respond(desktop) {
+        text-align: left;
+        padding: 0;
+      }
+    }
+
+    &-btn {
+      display: flex;
+      justify-content: center;
+      @include respond (desktop) {
+        display: none;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include respond(desktop) {
+        justify-content: flex-start;
+      }
+    }
+
+    &-left {
+      @include respond(desktop) {
+        flex-basis: 49rem;
+        padding: 7rem 0;
+      }
+      @include respond(large-desktop) {
+        flex-basis: 56rem;
+        padding: 16rem 0;
+      }
+    }
+
+    &-right {
+      display: none;
+      @include respond(desktop) {
+        display: block;
+        position: relative;
+      }
+    }
+  }
+}
+
+.work {
+  &__heading {
+    max-width: 39rem;
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 37rem);
+    grid-gap: 3rem;
+    justify-content: center;
+  }
+
+  &__item {
+    width: 37rem;
+    height: 28rem;
+    background-color: $color-grey-2;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contact {
+  &__btn {
+    @extend .work__btn;
+  }
+}
+
+.footer {
+  background-color: $color-primary;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+
+  &__nav {
+    list-style: none;
+    @include respond(tab) {
+      display: flex;
+    }
+  }
+
+  &__list {
+    display: flex;
+
+    &-item:nth-child(2) {
+      margin: 0 8rem;
+    }
+  }
+}

@@ -1,0 +1,116 @@
+// COLOR VARIABLES
+$color-primary: #314584;
+$color-secondary: #ff3946;
+$color-grey-1: #6e757a;
+$color-grey-2: #c3d0d8;
+$color-blue-light: #f4fafe;
+$color-white: #fff;
+$color-black: #000;
+
+// FONT VARIABLES
+$font-primary: 'Work Sans', sans-serif;
+$default-font-size: 1.8rem;
+
+//MIXINS
+@mixin respond($breakpoint) {
+  @if $breakpoint == tab {
+    @media only screen and (min-width: 48em) { @content };    // >768px
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 73.13em) { @content };     // >1170px
+  }
+  @if $breakpoint == large-desktop {
+    @media only screen and (min-width: 100em) { @content };     // >1600px
+  }
+}
+
+//BASE
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 56.25%; // 1rem = 10px
+  @include respond (tab) {
+    font-size: 62.5%;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: $default-font-size;
+}
+
+.root {
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  @include respond (tab) {
+    padding: 4rem 1.5rem;
+  }
+  @include respond (desktop) {
+    padding: 6rem 0;
+  }
+}
+
+//TYPOGRAPHY
+.heading {
+  &-primary {
+    font-size: 7.4rem;
+    line-height: 9.5rem;
+  }
+
+  &-secondary {
+    font-size: 4.8rem;
+    line-height: 6rem;
+  }
+
+  &-tertiary {
+    text-transform: uppercase;
+  }
+
+  &-color {
+    &--secondary {
+      color: $color-secondary;
+    }
+
+    &--white {
+      color: $color-white;
+    }
+  }
+}
+
+.sub-heading {
+  color: $color-grey-1;
+  font-weight: 400;
+}
+
+.copy {
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: $color-white;
+  padding: 2.5rem;
+}
+
+
+//UTILITIES
+.u-text-align-center {text-align: center !important;}
+.u-text-uppercase {text-transform: uppercase !important;}
+
+.u-margin-top-xs {margin-top: 1.5rem !important;}
+.u-margin-top-s {margin-top: 2.5rem !important;}
+.u-margin-top-md {margin-top: 4rem !important;}
+.u-margin-top-big {margin-top: 6rem !important;}
+
+.u-margin-bot-xs {margin-bottom: 1.5rem !important;}
